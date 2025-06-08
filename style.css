@@ -222,6 +222,33 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* RTL support: This makes the whole page right-to-left when dir="rtl" is set on <html> or <body> */
+html[dir="rtl"], body[dir="rtl"] {
+  direction: rtl; /* All content flows right-to-left */
+}
+
+/* Make sure text is aligned to the right for RTL */
+html[dir="rtl"] body,
+html[dir="rtl"] .intel-header,
+html[dir="rtl"] .header-content,
+html[dir="rtl"] .header-title,
+html[dir="rtl"] .header-subheading,
+html[dir="rtl"] .responsive-timeline,
+html[dir="rtl"] .timeline-card {
+  text-align: right; /* Align text to the right for RTL */
+}
+
+/* For timeline cards, swap margin to left for RTL */
+html[dir="rtl"] .timeline-card {
+  margin-left: 1rem;
+  margin-right: 0;
+}
+
+/* For timeline, make sure horizontal scroll starts from the right in RTL */
+html[dir="rtl"] .responsive-timeline {
+  direction: rtl;
+}
+
 html, body {
   overflow-x: hidden; /* Hide any extra horizontal scroll */
 }
