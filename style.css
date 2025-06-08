@@ -1,0 +1,232 @@
+/* Import a modern, tech-inspired font from Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap');
+
+/* Set the default font for the whole page */
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; /* Use Roboto or a similar sans-serif font */
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+  font-size: 14px; /* Slightly smaller base font size */
+  /* ...you can add more body styles here if needed... */
+  background: linear-gradient(135deg, #f0f0f0, #ffffff);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+/* Intel-branded header background and layout */
+.intel-header {
+  /* Blue gradient background inspired by Intel branding */
+  background: linear-gradient(135deg, #00C7FD 0%, #0068B5 100%); 
+  color: #fff; /* White text for contrast */
+  padding: 24px 0 20px 0; /* Reduced top/bottom padding */
+  text-align: center; /* Center all header content */
+  background-size: 200% 200%;              /* allow gradient movement */
+  animation: gradientAnimation 30s ease infinite; /* slow, seamless loop */
+}
+
+/* Container for header content */
+.header-content {
+  max-width: 600px; /* Narrower content area */
+  margin: 0 auto; /* Center horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Flex container for logo and text */
+.header-container {
+  max-width: 800px; /* Reduce the container's maximum width */
+  margin: 0 auto; /* Center the container */
+  display: flex; /* Place items side by side */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Space between logo and text */
+  padding: 0 20px; /* Horizontal padding */
+}
+
+/* Intel logo styling with added transform effect */
+.intel-logo {
+  width: 90px; /* Set logo size */
+  margin-bottom: 18px;
+  transition: transform 0.3s; /* smoothly animate transformation */
+}
+.intel-logo:hover {
+  transform: scale(1.05); /* slightly enlarge the logo on hover */
+}
+
+/* Text aligned to the left */
+.header-text {
+  text-align: left;
+  max-width: 500px;
+}
+
+/* Main headline styling */
+.header-title {
+  font-family: 'Titillium Web', 'Roboto', Arial, Helvetica, sans-serif; /* standout tech font */
+  font-size: 3rem;           /* slightly larger for emphasis */
+  font-weight: bold;
+  letter-spacing: 1px;       /* give extra spacing for a modern feel */
+  margin: 0 0 24px 0; /* Extra space below for better breathing room */
+  line-height: 1.1;
+  text-transform: none; /* Remove uppercase transform for a cleaner look */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for emphasis */
+}
+
+/* New subheading class */
+.header-subheading {
+  font-size: 1.15rem;
+  color: #e3f2fd; /* Subheading color */
+  margin: 0 0 16px 0; /* Bottom margin */
+}
+
+/* Decorative underline below subheading */
+.header-underline {
+  width: 60px;
+  border: 2px solid #00C7FD; /* Intel accent blue */
+  border-radius: 2px;
+  margin: 0 auto 0 auto;
+  background: none;
+  transform: scaleX(0); /* Initially hidden */
+  animation: drawIn 1s ease-out forwards .5s; /* Animate the underline */
+}
+
+@keyframes drawIn {
+  to {
+    transform: scaleX(1); /* Fully visible */
+  }
+}
+
+/* Keyframes for subtle gradient shift */
+@keyframes gradientAnimation {
+  0%, 100% {
+    background-position: 0% 50%;  /* start and end at left */
+  }
+  50% {
+    background-position: 100% 50%; /* mid-point at right */
+  }
+}
+
+/* Responsive Horizontal Timeline */
+.responsive-timeline {
+  width: 100%;
+  display: flex;
+  overflow-x: auto; /* allows horizontal scroll on large screens */
+  flex-wrap: nowrap; /* keeps items aligned in a row */
+  scroll-behavior: smooth; /* smoother scrolling */
+  padding: 1rem 0; /* spacing around timeline */
+  scroll-snap-type: x mandatory; /* enables horizontal snap */
+  padding-left: 1rem;       /* adds visual spacing on the left */
+  scroll-padding-left: 1rem; /* ensures snap doesn't start flush at the edge */
+}
+
+.responsive-timeline > div {
+  background: linear-gradient(135deg, #00C7FD 0%, #0068B5 100%); /* gradient background for cards */
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1); 
+  border-radius: 8px; 
+  padding: 1rem;
+  transition: transform 0.2s; /* smooth hover effect */
+}
+
+.timeline-card:hover, 
+.timeline-card:focus {
+  transform: translateY(-5px) scale(1.02); /* Slightly lift and scale up on focus */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on focus */
+}
+
+/* Each card shows only the year at first */
+.timeline-card {
+  color: #fff; /* text color for contrast */
+  margin-right: 1rem;
+  flex: 0 0 auto;
+  position: relative; /* for easy positioning of hidden content */
+  width: 20%;
+  overflow: hidden; /* Prevents content overflow */
+  text-align: center;
+  padding: 1rem;
+  scroll-snap-align: start; /* aligns the card at the start */
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1); /* subtle shadow for depth */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease; /* smooth hover effect */
+}
+
+.timeline-card h2 {
+  font-size: 2rem;
+  margin: 0;
+  text-align: center; /* Ensures the year is centered at the top */
+  position: relative; /* allows positioning of pseudo-elements */
+  
+}
+
+.timeline-card h2::before,
+.timeline-card h2::after {
+  content: "";
+  display: block; 
+  width: 63px; /* small line width */
+  height: 1px; /* thin line */
+  background-color: #fff; /* matches text color */
+  margin: 0.5rem auto; /* centers the line */
+}
+
+.timeline-card h2::before {
+  margin-bottom: 0.5rem; /* line spacing above the year */
+}
+
+.timeline-card h2::after {
+  margin-top: 0.5rem; /* line spacing below the year */
+}
+
+/* Hide the rest of the content with opacity */
+.timeline-card .card-body {
+  opacity: 0; /* Invisible by default */
+  transition: opacity 0.3s ease; /* Smooth fade-in */
+}
+
+.timeline-card .card-body p {
+  font-size: 1.1rem; /* Slightly larger text for card descriptions */
+}
+
+/* Reveal on hover without resizing the card */
+.timeline-card:hover .card-body,
+.timeline-card:focus .card-body {
+  opacity: 1;
+}
+
+.timeline-card img {
+  max-width: 100%; /* Makes images responsive */
+  height: auto;
+}
+
+/* Responsive behavior */
+@media (max-width: 600px) {
+  .responsive-timeline {
+    flex-direction: column; /* stacks on small screens */
+    overflow-x: visible;
+    height: auto; /* allow vertical growth on small screens */
+    width: auto;
+    margin: 0 auto; /* center the timeline container */
+    padding: 0 1rem; /* optional horizontal padding */
+    margin-top: 1rem; /* ensures space between the header and the cards */
+  }
+  .timeline-card {
+    margin: 0 auto 1rem auto; /* center card, add bottom margin */
+    width: 90%; /* reduce width to avoid horizontal overflow */
+  }
+  .header-content {
+    max-width: 90%; /* let the header content fill more space on small screens */
+  }
+  .header-title {
+    font-size: 2rem; /* slightly smaller heading on mobile */
+    margin: 0 0 16px 0; /* Adjusted margin for smaller screens */
+    line-height: 1.2; /* Slightly increased line height */
+  }
+}
+
+html, body {
+  overflow-x: hidden; /* Hide any extra horizontal scroll */
+}
+
+.responsive-timeline::after {
+  content: "";            /* create an empty spacer */
+  flex: 0 0 1rem;         /* width of the gap */
+}
