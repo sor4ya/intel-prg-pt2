@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3rem;           /* slightly larger for emphasis */
   font-weight: bold;
   letter-spacing: 1px;       /* give extra spacing for a modern feel */
-  margin: 0 0 24px 0; /* Extra space below for better breathing room */
+  margin: 0 0 14px 0; /* Extra space below for better breathing room */
   line-height: 1.1;
   text-transform: none; /* Remove uppercase transform for a cleaner look */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for emphasis */
@@ -84,9 +84,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Decorative underline below subheading */
 .header-underline {
   width: 60px;
-  border: 2px solid #00C7FD; /* Intel accent blue */
+  border: 2px solid #ffffff; /* Intel accent blue */
   border-radius: 2px;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 14px auto;
   background: none;
   transform: scaleX(0); /* Initially hidden */
   animation: drawIn 1s ease-out forwards .5s; /* Animate the underline */
@@ -195,6 +195,115 @@ h1, h2, h3, h4, h5, h6 {
 .timeline-card img {
   max-width: 100%; /* Makes images responsive */
   height: auto;
+}
+
+/* --- Summary Section: Make summary cards blend into background --- */
+.card.text-center {
+  background: transparent; /* Remove card background */
+  color: #003366; /* Use a dark blue for text for contrast */
+  border: none; /* Remove border */
+  border-radius: 0; /* Remove rounded corners */
+  box-shadow: none; /* Remove shadow */
+  padding: 0 0.5rem; /* Add a little horizontal space */
+}
+
+.card.text-center .card-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align icon and text to the right in RTL */
+  gap: 0.5rem;
+  color: #0068B5; /* Make heading blue */
+  font-weight: bold;
+}
+
+.card.text-center .card-title .bi {
+  font-size: 2rem; /* Make icon larger */
+  color: #00C7FD; /* Accent blue for icon */
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.card.text-center .card-text {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #222; /* Slightly darker for readability */
+}
+
+.card.text-center .btn {
+  background-color: #00C7FD;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 0.5rem;
+}
+.card.text-center .btn:hover, .card.text-center .btn:focus {
+  background-color: #0068B5;
+  color: #fff;
+}
+
+/* --- Subscription Form Section Styles --- */
+.subscribe-section {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+}
+.subscribe-input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+.subscribe-btn {
+  width: 100%;
+  padding: 0.75rem 0;
+  background: #00C7FD; /* Dark blue/black for button */
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.subscribe-btn:hover, .subscribe-btn:focus {
+  background: #0068B5; /* Intel blue on hover */
+}
+
+/* --- Footer Styles --- */
+.site-footer {
+  background: linear-gradient(135deg, #00C7FD 0%, #0068B5 100%); /* Match timeline/summary cards */
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 1rem;
+  margin-top: 0;
+}
+.site-footer p {
+  margin: 0;
+}
+
+/* Responsive adjustments for summary cards */
+@media (max-width: 600px) {
+  .card.text-center {
+    margin-bottom: 1rem;
+    padding: 0;
+  }
 }
 
 /* Responsive behavior */
